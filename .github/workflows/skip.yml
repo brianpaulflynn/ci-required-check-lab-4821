@@ -1,0 +1,10 @@
+name: skip
+on: pull_request_target
+permissions: { contents: read }
+jobs:
+  a: { name: ctx-skip-ok,   if: "false", runs-on: ubuntu-latest, steps: [ { run: "exit 0" } ] }
+  b: { name: ctx-skip-ok,   runs-on: ubuntu-latest, steps: [ { run: "exit 0" } ] }
+  c: { name: ctx-skip-fail, if: "false", runs-on: ubuntu-latest, steps: [ { run: "exit 0" } ] }
+  d: { name: ctx-skip-fail, runs-on: ubuntu-latest, steps: [ { run: "exit 1" } ] }
+  e: { name: ctx-toggle,    if: "vars.BACKEND == 'hosted'", runs-on: ubuntu-latest, steps: [ { run: "exit 0" } ] }
+  f: { name: ctx-toggle,    if: "vars.BACKEND == 'mac'",    runs-on: ubuntu-latest, steps: [ { run: "exit 1" } ] }
