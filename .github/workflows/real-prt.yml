@@ -4,6 +4,6 @@ permissions: { contents: read }
 jobs:
   a: { name: ctx-prt-failfirst,    runs-on: ubuntu-latest, steps: [ { run: "exit 1" } ] }
   b: { name: ctx-prt-successfirst, runs-on: ubuntu-latest, steps: [ { run: "sleep 90; exit 1" } ] }
-  c: { name: ctx-prt-edit,         runs-on: ubuntu-latest, steps: [ { run: "exit 1" } ] }
+  c: { name: ctx-prt-edit,         runs-on: ubuntu-latest, steps: [ { run: "exit 0" } ] }
   d: { name: ctx-api,              runs-on: ubuntu-latest, steps: [ { run: "exit 1" } ] }
   e: { name: ctx-prt-pass,         runs-on: ubuntu-latest, steps: [ { run: "exit 0" } ] }
