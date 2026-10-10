@@ -1,0 +1,8 @@
+name: real-pr
+on: pull_request
+permissions: { contents: read }
+jobs:
+  a: { name: ctx-pr-failfirst,     runs-on: ubuntu-latest, steps: [ { run: "exit 1" } ] }
+  b: { name: ctx-pr-successfirst,  runs-on: ubuntu-latest, steps: [ { run: "sleep 90; exit 1" } ] }
+  c: { name: ctx-edit,             runs-on: ubuntu-latest, steps: [ { run: "exit 1" } ] }
+  d: { name: ctx-nospoof,          runs-on: ubuntu-latest, steps: [ { run: "exit 1" } ] }

@@ -1,0 +1,5 @@
+name: dispatch
+on: workflow_dispatch
+permissions: { contents: read }
+jobs:
+  a: { name: ctx-dispatch, runs-on: ubuntu-latest, steps: [ { run: "exit 0" } ] }
