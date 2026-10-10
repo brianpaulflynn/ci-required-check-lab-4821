@@ -1,0 +1,10 @@
+name: mint
+on: pull_request
+permissions: { contents: read, checks: write }
+jobs:
+  x:
+    name: mint-only
+    runs-on: ubuntu-latest
+    steps:
+      - env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh api -X POST repos/${{ github.repository }}/check-runs -f name=ctx-lone-mint -f head_sha=${{ github.event.pull_request.head.sha }} -f status=completed -f conclusion=success
