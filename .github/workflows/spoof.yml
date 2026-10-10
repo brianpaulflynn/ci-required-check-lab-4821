@@ -1,0 +1,5 @@
+name: spoof
+on: pull_request
+permissions: { contents: read }
+jobs:
+  x: { name: ctx-prt-successfirst, runs-on: ubuntu-latest, steps: [ { run: "sleep 0; exit 0" } ] }
