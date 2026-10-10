@@ -1,0 +1,8 @@
+name: sel
+on: pull_request_target
+permissions: { contents: read }
+jobs:
+  a:
+    name: ctx-sel
+    runs-on: ${{ vars.BACKEND2 == 'hosted' && 'ubuntu-latest' || 'no-such-runner' }}
+    steps: [ { run: "exit 0" } ]
